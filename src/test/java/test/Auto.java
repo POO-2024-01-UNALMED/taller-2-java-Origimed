@@ -11,10 +11,17 @@ public class Auto {
     static int cantidadCreados;
 
 
-
-
     int cantidadAsientos(){
-        return this.asientos.length;
+
+        int asientosTotales = 0; 
+
+        for (Asiento asientoActual: asientos){
+            if (asientoActual instanceof Asiento){
+                asientosTotales ++;
+            }
+        }
+        return asientosTotales;
+
 
     }
     
@@ -24,7 +31,7 @@ public class Auto {
 
             for (Asiento asientoActual: asientos){ //revision del registro de cada elemento de asientos
 
-                if (asientoActual.registro != registro){
+                if (asientoActual != null && asientoActual.registro != registro){
 
                     return "Las piezas no son originales";
                     
